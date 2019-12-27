@@ -34,11 +34,11 @@ class BTLEConnection(btle.DefaultDelegate):
         self._conn.withDelegate(self)
         _LOGGER.debug("Trying to connect to %s", self._mac)
         try:
-            self._conn.connect(deviceAddress=self._mac, iface=self._iface)
+            self._conn.connect(deviceAddr=self._mac, iface=self._iface)
         except btle.BTLEException as ex:
             _LOGGER.debug("Unable to connect to the device %s, retrying: %s", self._mac, ex)
             try:
-                self._conn.connect(deviceAddress=self._mac, iface=self._iface)
+                self._conn.connect(deviceAddr=self._mac, iface=self._iface)
             except Exception as ex2:
                 _LOGGER.debug("Second connection try to %s failed: %s", self._mac, ex2)
                 raise
